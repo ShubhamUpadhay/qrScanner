@@ -26,7 +26,7 @@
 
         }).then(res => res.json()).then(
             data => {
-                dd.innerText = data
+                dd.innerText = JSON.parse(data)
                 // alert(data.email)
             }
         )
