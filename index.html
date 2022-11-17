@@ -17,19 +17,19 @@
         const slug = params.slug
         console.log(slug)
         let dd = document.getElementById('dd')
-        fetch('https://api.flitty.app/flitty/getClient', {
+        fetch('http://localhost:1102/flitty/getClient', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ "email": slug })
+            body: JSON.stringify({ "email": `${slug}` })
 
         }).then(res => res.json()).then(
             data => {
-                dd.innerText = JSON.parse(data)
-                // alert(data.email)
+                console.log(data.response)
+                dd.innerText = (data.response).firstName
             }
-        )
+        ).catch(err => console.log("error: ", err));
     </script>
 </body>
 
