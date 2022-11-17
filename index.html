@@ -9,11 +9,14 @@
 </head>
 
 <body>
+    <p>data:</p>
+    <p id="dd"></p>
     <script>
         const urlSearchParams = new URLSearchParams(window.location.search);
         const params = Object.fromEntries(urlSearchParams.entries());
         const slug = params.slug
         console.log(slug)
+        let dd = document.getElementById('dd')
         fetch('https://api.flitty.app/flitty/getClient', {
             method: "POST",
             headers: {
@@ -23,7 +26,8 @@
 
         }).then(res => res.json()).then(
             data => {
-                alert(data.email)
+                dd.innerText = data
+                // alert(data.email)
             }
         )
     </script>
