@@ -14,7 +14,7 @@
         const params = Object.fromEntries(urlSearchParams.entries());
         const slug = params.slug
         console.log(slug)
-        fetch('http://localhost:1102/flitty/getClient', {
+        fetch('https://api.flitty.app/flitty/getClient', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
