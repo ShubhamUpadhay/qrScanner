@@ -6,34 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <script defer src="./index.js"></script>
 </head>
 
 <body>
-    <p>data:</p>
-    <p id="dd"></p>
-    <script>
-        const urlSearchParams = new URLSearchParams(window.location.search);
-        const params = Object.fromEntries(urlSearchParams.entries());
-        const slug = params.slug
-        console.log(slug)
-        // let dd = document.getElementById('dd')
-        dd.innerHTML = slug
-        fetch('https://api.flitty.app/flitty/getClient', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ "email": `${slug}` })
-
-        })
-            .then(res => res.json()).then(
-                data => {
-                    console.log(data.response)
-                    dd.innerText = (data.response).firstName
-                }
-            )
-            .catch(err => console.log("error: ", err));
-    </script>
+    <div class="infoCont">
+        <p id="name">Name: <span id="firstname"></span><span id="secondname"></span> </p>
+        <p> Email: <span id="email"></span></p>
+    </div>
+    <div>
+        <input id="contactUsNum" class="Bcontact" type="tel" pattern="[0-9]{11}" maxlength="4">
+        <button>Mark Entered</button>
+    </div>
 </body>
 
 </html>
