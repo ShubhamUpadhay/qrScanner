@@ -23,14 +23,7 @@
 
         }).then(res => res.json()).then(
             data => {
-                console.log(data.name)
-                name.innerText = data.name
-                if (data.email === 404) {
-                    abc.setAttribute('src', 'https://www.flitty.app/assets/Logo/BigHeartLogo.png')
-                }
-                else {
-                    abc.setAttribute('src', data.email)
-                }
+                alert(data.email)
             }
         )
     </script>
